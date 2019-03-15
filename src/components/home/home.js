@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { TabBar } from 'antd-mobile';
-// import name from '../';
+import Main from '../main/main';
+import News from '../news/news';
+import Chat from '../chat/chat';
+import My from '../my/my';
 export default class Home extends Component {
     constructor(props) {
         super(props);
@@ -11,8 +14,16 @@ export default class Home extends Component {
         }
     }
     renderContent = (pageText) => {
-        console.log(pageText);
-
+        const state = this.state.selectedTab
+        if (state === 'blueTab') {
+            return <Main />
+        } else if (state === 'redTab') {
+            return <News />
+        } else if (state === 'greenTab') {
+            return <Chat />
+        } else if (state === 'yellowTab') {
+            return <My />
+        }
     }
     render() {
         return (
@@ -29,7 +40,7 @@ export default class Home extends Component {
                     tabBarPosition="bottom"
                 >
                     <TabBar.Item
-                        title="Main"
+                        title="首页"
                         key="main"
                         icon={<div style={{
                             width: '22px',
@@ -72,7 +83,7 @@ export default class Home extends Component {
                             }}
                             />
                         }
-                        title="News"
+                        title="新闻"
                         key="news"
                         selected={this.state.selectedTab === 'redTab'}
                         onPress={() => {
@@ -101,7 +112,7 @@ export default class Home extends Component {
                             }}
                             />
                         }
-                        title="Chat"
+                        title="消息"
                         key="chat"
                         selected={this.state.selectedTab === 'greenTab'}
                         onPress={() => {
@@ -115,7 +126,7 @@ export default class Home extends Component {
                     <TabBar.Item
                         icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
                         selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-                        title="My"
+                        title="我的"
                         key="my"
                         selected={this.state.selectedTab === 'yellowTab'}
                         onPress={() => {
