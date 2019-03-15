@@ -1,0 +1,32 @@
+.loginTop {
+    height: 100%;
+    padding-top: 30%;
+    /* margin-top: 60%; */
+    text-align: center;
+    /* background-color: rgba(30, 221, 196, 0.356); */
+}
+
+.loginLogo,
+.loginLogo img {
+    width: 100px;
+    height: 100px;
+}
+
+.loginRe a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+}
+
+.leftRe {
+    float: left;
+}
+
+.rightRe {
+    float: right;
+}
+
+.inputBgc,
+.am-list-body {
+    /* background-color: transparent !important; */
+}
