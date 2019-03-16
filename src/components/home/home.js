@@ -34,7 +34,7 @@ export default class Home extends Component {
             }>
                 <TabBar
                     unselectedTintColor="#949494"
-                    tintColor="#33A3F4"
+                    tintColor="#FDB143"
                     barTintColor="white"
                     hidden={this.state.hidden}
                     tabBarPosition="bottom"
@@ -45,14 +45,14 @@ export default class Home extends Component {
                         icon={<div style={{
                             width: '22px',
                             height: '22px',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat'
+                            background: 'url(http://127.0.0.1:8086/public/index-1.fw.png) center center /  21px 21px no-repeat'
                         }}
                         />
                         }
                         selectedIcon={<div style={{
                             width: '22px',
                             height: '22px',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat'
+                            background: 'url(http://127.0.0.1:8086/public/index-2.fw.png) center center /  21px 21px no-repeat'
                         }}
                         />
                         }
@@ -71,7 +71,7 @@ export default class Home extends Component {
                             <div style={{
                                 width: '22px',
                                 height: '22px',
-                                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat'
+                                background: 'url(http://127.0.0.1:8086/public/news-1.fw.png) center center /  21px 21px no-repeat'
                             }}
                             />
                         }
@@ -79,7 +79,7 @@ export default class Home extends Component {
                             <div style={{
                                 width: '22px',
                                 height: '22px',
-                                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat'
+                                background: 'url(http://127.0.0.1:8086/public/news-2.fw.png) center center /  21px 21px no-repeat'
                             }}
                             />
                         }
@@ -100,7 +100,7 @@ export default class Home extends Component {
                             <div style={{
                                 width: '22px',
                                 height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat'
+                                background: 'url(http://127.0.0.1:8086/public/chat-1.fw.png) center center /  21px 21px no-repeat'
                             }}
                             />
                         }
@@ -108,7 +108,7 @@ export default class Home extends Component {
                             <div style={{
                                 width: '22px',
                                 height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat'
+                                background: 'url(http://127.0.0.1:8086/public/chat-2.fw.png) center center /  21px 21px no-repeat'
                             }}
                             />
                         }
@@ -124,8 +124,8 @@ export default class Home extends Component {
                         {this.renderContent('Chat')}
                     </TabBar.Item>
                     <TabBar.Item
-                        icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-                        selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
+                        icon={{ uri: 'http://127.0.0.1:8086/public/my-1.fw.png' }}
+                        selectedIcon={{ uri: 'http://127.0.0.1:8086/public/my-2.fw.png' }}
                         title="我的"
                         key="my"
                         selected={this.state.selectedTab === 'yellowTab'}

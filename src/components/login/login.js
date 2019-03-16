@@ -22,7 +22,7 @@ export default class Login extends Component {
         const body = this.state
         const res = await axios.post(`users/login`, body)
         // console.log(res);
-        const { data, meta: { msg, status } } = res.data
+        const { data, meta: { status } } = res.data
         if (status === 200) {
             history.push('/')
             localStorage.setItem('token', data.token) // 存储当前用户的toke值 
@@ -62,8 +62,8 @@ export default class Login extends Component {
                         <Button type="primary" className={"loginbtn"} onClick={this.gotoLogin}>登陆</Button>
                         <WhiteSpace size="lg" />
                         <div className={"loginRe"}>
-                            <span className={"leftRe"}><a href="javascript:">忘记密码？</a></span>
-                            <span className={"rightRe"}><a href="javascript:">注册新用户</a></span>
+                            <span className={"leftRe"}><a>忘记密码？</a></span>
+                            <span className={"rightRe"}><a>注册新用户</a></span>
                         </div>
                     </Flex.Item>
                 </Flex>

@@ -30,3 +30,7 @@
 .am-list-body {
     /* background-color: transparent !important; */
 }
+
+.am-button-primary .am-button-acti {
+    background-color: #fdb143;
+}

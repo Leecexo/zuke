@@ -1,0 +1,73 @@
+.am-search-input input[type="search"],
+.am-search-cancel {
+    font-size: 12px;
+}
+
+.am-grid.am-grid-square .am-grid-item .am-grid-item-inner-content .am-grid-icon {
+    margin-top: 9px;
+    width: 40% !important;
+}
+
+.am-card-header-content {
+    -webkit-flex: 1;
+    flex: 1 1;
+    text-align: left;
+    color: #000;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
+.am-card-footer {
+    font-size: 12px;
+}
+
+.am-card-body img {
+    vertical-align: middle;
+}
+
+.am-card-footer-extra img {
+    vertical-align: middle;
+}
+
+.conentleft {
+    float: left;
+    width: 45%;
+}
+
+.conentleft img {
+    width: 100%;
+}
+
+.conentright {
+    float: right;
+}
+
+.conentright span {
+    display: block;
+    margin: 5px 0;
+}
+
+.indexNewsFangyuan {
+    background-color: #fff;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+h4 {
+    margin: 10px 0;
+    padding: 0;
+}
+
+.indexNewsFangyuan h3 {
+    padding-left: 22px;
+    background: url(http://127.0.0.1:8086/public/ico/14.png) no-repeat left center;
+}
