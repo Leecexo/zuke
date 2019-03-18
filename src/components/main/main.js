@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { SearchBar, WingBlank, Carousel, Grid, NoticeBar, Card, Tag, WhiteSpace } from 'antd-mobile'
 import axios from '../../http';
 import './main.css'
+
 export default class Main extends Component {
     constructor(props) {
         super(props)
@@ -100,6 +101,37 @@ export default class Main extends Component {
             })
         }
     }
+    // 八大服务点击
+    serverClick = (el, index) => {
+        let text = el.text
+        const { history } = this.props.props
+        switch (index + 1) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                history.push('/list', { query: { params: { id: index + 1, text: text } } })
+                break;
+            case 5:
+
+                break;
+            case 6:
+
+                break;
+            case 7:
+
+                break;
+            case 8:
+
+                break;
+            default:
+                break;
+        }
+
+
+
+
+    }
     render() {
         return (
             <div className={"topsearch"}>
@@ -128,7 +160,7 @@ export default class Main extends Component {
                     </Carousel>
                     <WhiteSpace size="sm" />
                     {/* 8大服务内容 */}
-                    <Grid data={this.state.serverData} isCarousel onClick={_el => console.log(_el)} />
+                    <Grid data={this.state.serverData} isCarousel onClick={this.serverClick} />
                     <WhiteSpace size="sm" />
                     {/* 通知新闻 */}
                     <NoticeBar marqueeProps={{ loop: true, style: { padding: '0 7.5px' } }}>

@@ -16,7 +16,7 @@ export default class Home extends Component {
     renderContent = (pageText) => {
         const state = this.state.selectedTab
         if (state === 'blueTab') {
-            return <Main />
+            return <Main props={this.props} />
         } else if (state === 'redTab') {
             return <News />
         } else if (state === 'greenTab') {
