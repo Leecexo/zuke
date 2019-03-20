@@ -9,14 +9,6 @@
 }
 
 .am-card-header-content {
-    -webkit-flex: 1;
-    flex: 1 1;
-    text-align: left;
-    color: #000;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -46,6 +38,22 @@
 
 .conentright {
     float: right;
+    width: 50%;
+}
+
+.conentright h4 {
+    overflow: hidden;
+    /*溢出隐藏*/
+    word-break: break-all;
+    /*关闭遇空格换行*/
+    text-overflow: ellipsis;
+    /*溢出显示省略号*/
+    -webkit-line-clamp: 3;
+    /*设置几行文字*/
+    -webkit-box-orient: vertical;
+    /*设置文字的垂直对齐方式*/
+    display: -webkit-box;
+    /*让当前盒子为伸缩盒子*/
 }
 
 .conentright span {

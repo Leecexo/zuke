@@ -1,0 +1,47 @@
+body {
+    background-color: #fff;
+}
+
+.am-list-body {
+    border: none;
+}
+
+.am-list-body::before {
+    background-color: #fff !important;
+}
+
+.am-list-body::after {
+    background-color: #fff !important;
+}
+
+.calBtn {
+    text-align: center;
+}
+
+.am-tabs-default-bar-underline {
+    position: absolute;
+    border: 2px #fdb143 solid;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.calContent {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.calRow {
+    width: 100%;
+    height: 50px;
+}
+
+.calLeft {
+    float: left;
+    width: 30%;
+    line-height: 30px;
+}
+
+.calRight {
+    float: left;
+    width: 70%;
+}

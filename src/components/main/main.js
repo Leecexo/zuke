@@ -119,7 +119,7 @@ export default class Main extends Component {
 
                 break;
             case 7:
-
+                history.push('/calculator', { query: { params: { id: index + 1, text: text } } })
                 break;
             case 8:
 

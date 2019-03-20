@@ -12,7 +12,7 @@ export default class List extends Component {
     componentDidMount = async () => {
 
         const { id, text } = this.props.location.state.query.params
-        console.log(text, id);
+        // console.log(text, id);
         const res = await axios.post(`homes/list`, { home_type: id })
         const { meta, data } = res.data
         if (meta.status === 200) {

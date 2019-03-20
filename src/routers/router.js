@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-ro
 import Login from '../components/login/login'
 import Home from '../components/home/home'
 import List from '../components/main/list';
+import Calculator from '../components/main/calculator';
 export default class RouterCom extends Component {
     render() {
         return (
@@ -15,8 +16,10 @@ export default class RouterCom extends Component {
                         <Route exact path="/" component={Home}></Route>
                         <Route exact path="/login" component={Login}></Route>
                         <Route exact path="/list" component={List}></Route>
+                        <Route exact path="/calculator" component={Calculator}></Route>
                         <Redirect exact to="/login" />
                         <Redirect exact to="/list" />
+                        <Redirect exact to="/calculator" />
                     </Switch>
                 </div>
             </Router>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { TabBar } from 'antd-mobile';
 import Main from '../main/main';
-import News from '../news/news';
+import News from '../news/news.1';
 import Chat from '../chat/chat';
 import My from '../my/my';
 export default class Home extends Component {
@@ -18,7 +18,7 @@ export default class Home extends Component {
         if (state === 'blueTab') {
             return <Main props={this.props} />
         } else if (state === 'redTab') {
-            return <News />
+            return <News title={pageText} />
         } else if (state === 'greenTab') {
             return <Chat />
         } else if (state === 'yellowTab') {
@@ -83,7 +83,7 @@ export default class Home extends Component {
                             }}
                             />
                         }
-                        title="新闻"
+                        title="资讯"
                         key="news"
                         selected={this.state.selectedTab === 'redTab'}
                         onPress={() => {
@@ -93,7 +93,7 @@ export default class Home extends Component {
                         }}
                     // data-seed="logId1"
                     >
-                        {this.renderContent('News')}
+                        {this.renderContent('资讯')}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={
