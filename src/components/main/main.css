@@ -15,6 +15,11 @@
     font-size: 14px;
 }
 
+.am-card-header-content img {
+    width: 14px;
+    height: 14px;
+}
+
 .am-card-footer {
     font-size: 12px;
 }
@@ -25,6 +30,8 @@
 
 .am-card-footer-extra img {
     vertical-align: middle;
+    width: 14px;
+    height: 14px;
 }
 
 .conentleft {
@@ -78,4 +85,69 @@ h4 {
 .indexNewsFangyuan h3 {
     padding-left: 22px;
     background: url(http://127.0.0.1:8086/public/ico/14.png) no-repeat left center;
+}
+
+.issueImg img {
+    width: 14px;
+    height: 14px;
+}
+
+.catLeft {
+    float: left;
+    width: 20%;
+    height: 80px;
+    box-sizing: border-box;
+    padding-top: 5px;
+    background-color: #fff;
+}
+
+.catLeft img {
+    width: 100%;
+}
+
+.catRight {
+    float: left;
+    width: 80%;
+    min-height: 80px;
+}
+
+.catRight .am-card-header {
+    padding: 10px 15px;
+}
+
+.catRight .am-card-body {
+    padding-top: 5px;
+    min-height: 25px;
+}
+
+.catRight .am-card-body::before {
+    background-color: transparent !important;
+}
+
+.catRight::before,
+.catRight::after {
+    background-color: transparent !important;
+}
+
+.am-tab-bar-item {
+    background-color: #eee;
+}
+
+/*清除浮动*/
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+    border-bottom: 1px solid #ddd;
+    height: 100%;
+    /* padding: 0 5px; */
 }

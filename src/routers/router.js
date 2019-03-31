@@ -4,6 +4,7 @@ import Login from '../components/login/login'
 import Home from '../components/home/home'
 import List from '../components/main/list';
 import Calculator from '../components/main/calculator';
+import CatDetails from '../components/chat/catDetails';
 export default class RouterCom extends Component {
     render() {
         return (
@@ -17,9 +18,11 @@ export default class RouterCom extends Component {
                         <Route exact path="/login" component={Login}></Route>
                         <Route exact path="/list" component={List}></Route>
                         <Route exact path="/calculator" component={Calculator}></Route>
+                        <Route exact path="/catDetails" component={CatDetails}></Route>
                         <Redirect exact to="/login" />
                         <Redirect exact to="/list" />
                         <Redirect exact to="/calculator" />
+                        <Redirect exact to="/catDetails" />
                     </Switch>
                 </div>
             </Router>

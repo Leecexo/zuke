@@ -25,8 +25,10 @@ export default class Login extends Component {
         const { data, meta: { status } } = res.data
         if (status === 200) {
             history.push('/')
+            // console.log(data)
             localStorage.setItem('token', data.token) // 存储当前用户的toke值 
-            // console.log(localStorage.getItem('token'))
+            localStorage.setItem('uid', data.uid) // 存储当前用户信息 
+            localStorage.setItem('uname', data.uname) // 存储当前用户信息
         }
     }
     render() {

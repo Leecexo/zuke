@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavBar, WhiteSpace, Card, Tag, Tabs, WingBlank, }
+import { NavBar, WhiteSpace, Card, Tag, Tabs, Button, Modal, Toast }
     from 'antd-mobile'
 import { StickyContainer, Sticky } from 'react-sticky'
 import moment from 'moment';
@@ -7,6 +7,7 @@ import ReactPullLoad, { STATS } from "react-pullload"
 import "../css/ReactPullLoad.css"
 import './news.css'
 import axios from '../../http';
+const prompt = Modal.prompt;
 export default class News extends Component {
     constructor(props) {
         super(props);
@@ -18,8 +19,8 @@ export default class News extends Component {
                 { id: 3, title: '问答' },
             ],
             pagenum: 0,
-            pagesize: 2,
-            loadpagesize: 2,
+            pagesize: 10,
+            loadpagesize: 10,
             type: 1,
             total: 0,
             newslist: [], // 新闻列表数据
@@ -40,10 +41,6 @@ export default class News extends Component {
             type: this.state.type
         })
         const { meta, data } = res.data
-        console.log(this.state.type);
-        console.log(data);
-
-
         if (meta.status === 200) {
             // 根据不同的type值，取不同的list数组
             if (this.state.type === 1) {
@@ -60,11 +57,14 @@ export default class News extends Component {
                     this.dispoesData(this.state.newslist)
                 })
             }
-            // if (this.state.type === 3) {
-            //     this.setState({
-            //         newslist: data.list
-            //     })
-            // }
+            if (this.state.type === 3) {
+                // console.log(data.list);
+                this.setState({
+                    callist: data.list
+                }, () => {
+                    this.issueData(this.state.callist)
+                })
+            }
         }
     }
     // 获取当前列表标题
@@ -94,7 +94,7 @@ export default class News extends Component {
             this.getData()
         })
     }
-    // 封装列表数据处理
+    // 封装新闻列表数据处理
     dispoesData = (list) => {
         // console.log(list);
         const { data, total } = list
@@ -121,10 +121,34 @@ export default class News extends Component {
         this.setState({
             datalist: arr,
             total: total,
-            index: total - this.state.datalist.length,
+            index: total - arr.length,
         })
     }
-
+    // 封装问答列表数据处理
+    issueData = (list) => {
+        // console.log(list);
+        const { data, total } = list
+        let arr = []
+        data.map((item, i) => {
+            return arr.push(
+                <div key={i}>
+                    <Card>
+                        <Card.Header title={item.question_name} thumb="http://127.0.0.1:8086/public/ico/10.png" />
+                        <Card.Body>
+                            <div className={"issueImg"}><img src={`http://127.0.0.1:8086/public/ico/13.png`}></img> {item.answer_content}</div>
+                        </Card.Body>
+                        <Card.Footer content={item.question_tag} extra={<div><img src={`http://127.0.0.1:8086/public/ico/15.png`}></img>{item.username} <img src={`http://127.0.0.1:8086/public/ico/11.png`}></img>{item.atime} <img src={`http://127.0.0.1:8086/public/ico/12.png`}></img>{item.qnum} </div>} />
+                    </Card>
+                    <WhiteSpace size="xs" />
+                </div>
+            )
+        })
+        this.setState({
+            datalist: arr,
+            total: total,
+            index: total - arr.length,
+        })
+    }
 
     // 判断是否有动作指令
     handleAction = action => {
@@ -208,6 +232,30 @@ export default class News extends Component {
     };
 
 
+    btnClick = () => {
+        prompt('快速提问', '',
+            [
+                {
+                    text: '取消',
+                    onPress: value => { },
+                },
+                {
+                    text: '确认',
+                    onPress: async value => {
+                        console.log('sure----');
+                        const res = await axios.post(`infos/question`, {
+                            question: value
+                        })
+                        console.log(res);
+
+                    },
+                },
+            ], 'default', null, ['输入你的问题……'])
+    }
+
+
+
+
     render() {
         const { hasMore } = this.state;
         return (
@@ -239,6 +287,26 @@ export default class News extends Component {
                             </ReactPullLoad>
                         </div>
                         <div>
+
+                            <ReactPullLoad
+                                // downEnough={0} // 下拉的距离 用于触发下拉刷新
+                                action={this.state.action} // 用于同步状态
+                                handleAction={this.handleAction} // 用于处理状态
+                                hasMore={hasMore} // 是否还有更多内容可加载 bool,默认是true
+                            // style={{ paddingTop: 50 }}
+                            // distanceBottom={1000} // 距离底部距离触发加载更多
+                            >
+
+                                {/* 展开数据 */}
+                                {this.state.datalist}
+                                {/* <a href="javascript:" onClick={this.handLoadMore}>loading more</a> */}
+                            </ReactPullLoad>
+                        </div>
+                        <div>
+                            <Button type="primary" onClick={this.btnClick}
+                                style={{
+                                    margin: '4px', height: '24px', fontSize: '14px', lineHeight: '24px'
+                                }}>我要提问</Button >
                             <ReactPullLoad
                                 // downEnough={0} // 下拉的距离 用于触发下拉刷新
                                 action={this.state.action} // 用于同步状态
@@ -251,9 +319,6 @@ export default class News extends Component {
                                 {this.state.datalist}
                                 {/* <a href="javascript:" onClick={this.handLoadMore}>loading more</a> */}
                             </ReactPullLoad>
-                        </div>
-                        <div>
-                            {/* {this.state.newslist} */}
                         </div>
                     </Tabs>
                 </StickyContainer>

@@ -20,7 +20,7 @@ export default class Home extends Component {
         } else if (state === 'redTab') {
             return <News title={pageText} />
         } else if (state === 'greenTab') {
-            return <Chat />
+            return <Chat title={pageText} props={this.props} />
         } else if (state === 'yellowTab') {
             return <My />
         }
@@ -121,7 +121,7 @@ export default class Home extends Component {
                             });
                         }}
                     >
-                        {this.renderContent('Chat')}
+                        {this.renderContent('消息')}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={{ uri: 'http://127.0.0.1:8086/public/my-1.fw.png' }}
@@ -135,7 +135,7 @@ export default class Home extends Component {
                             });
                         }}
                     >
-                        {this.renderContent('My')}
+                        {this.renderContent('我的')}
                     </TabBar.Item>
                 </TabBar>
             </div>

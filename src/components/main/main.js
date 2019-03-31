@@ -58,7 +58,7 @@ export default class Main extends Component {
                         <Card>
                             <Card.Header title={item.question_name} thumb="http://127.0.0.1:8086/public/ico/10.png" />
                             <Card.Body>
-                                <div><img src={`http://127.0.0.1:8086/public/ico/13.png`}></img> {item.answer_content}</div>
+                                <div className={"issueImg"}><img src={`http://127.0.0.1:8086/public/ico/13.png`}></img> {item.answer_content}</div>
                             </Card.Body>
                             <Card.Footer content={item.question_tag} extra={<div><img src={`http://127.0.0.1:8086/public/ico/11.png`}></img>{item.atime} <img src={`http://127.0.0.1:8086/public/ico/12.png`}></img>{item.qnum} </div>} />
                         </Card>
